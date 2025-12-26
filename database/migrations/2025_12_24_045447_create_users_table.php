@@ -15,9 +15,9 @@ return new class extends Migration {
             $table->string('name', 100);
             $table->string('password', 150);
             $table->string('role', 30);
-            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->foreignId('deleted_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->nullable()->constrained('users');
             $table->timestamps();
             $table->softDeletes();
 

@@ -14,16 +14,16 @@ return new class extends Migration {
             $table->id();
             $table->string('name', 100);
             $table->string('address');
-            $table->string('village', 100);
-            $table->string('taluko', 100);
-            $table->string('district', 100);
-            $table->string('pin_code', 15);
-            $table->string('phone_number', 15);
-            $table->string('email', 150)->unique();
-            $table->string('coordinator_name');
-            $table->foreignId('created_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->foreignId('updated_by')->nullable()->constrained('users')->nullOnDelete();
-            $table->foreignId('deleted_by')->nullable()->constrained('users')->nullOnDelete();
+            $table->string('village', 30);
+            $table->string('taluko', 30);
+            $table->string('district', 30);
+            $table->string('pin_code', 6);
+            $table->string('phone_number', 12);
+            $table->string('email', 50)->unique();
+            $table->string('coordinator_name',50);
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->nullable()->constrained('users');
             $table->timestamps();
             $table->softDeletes();
 

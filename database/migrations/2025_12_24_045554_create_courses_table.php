@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 100);
-            $table->unsignedInteger('max_student');
-            $table->unsignedInteger('length_in_week');
+            $table->string('name', 50);
+            $table->unsignedTinyInteger('max_student');
+            $table->unsignedTinyInteger('length_in_week');
             $table->boolean('is_avail_sunday')->default(false);
             $table->timestamps();
         });

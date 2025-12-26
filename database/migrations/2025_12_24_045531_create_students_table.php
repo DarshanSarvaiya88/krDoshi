@@ -12,19 +12,23 @@ return new class extends Migration {
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('batch_id')->nullable()->constrained('batches')->nullOnDelete();
-            $table->string('first_name', 100);
-            $table->string('middle_name', 100);
-            $table->string('last_name', 100);
+            $table->foreignId('batch_id')->nullable()->constrained('batches');
+            $table->string('first_name', 30);
+            $table->string('middle_name', 30);
+            $table->string('last_name', 30);
             $table->string('address');
-            $table->string('village', 100);
-            $table->string('taluko', 100);
-            $table->string('district', 100);
-            $table->string('phone_number', 15);
-            $table->string('parent_number', 15);
-            $table->string('email', 150)->unique();
-            $table->string('parent_email', 150);
+            $table->string('village', 30);
+            $table->string('taluko', 30);
+            $table->string('district', 30);
+            $table->string('phone_number', 12);
+            $table->string('parent_number', 12);
+            $table->string('email', 50)->unique();
+            $table->string('parent_email', 50);
+            $table->foreignId('created_by')->nullable()->constrained('users');
+            $table->foreignId('updated_by')->nullable()->constrained('users');
+            $table->foreignId('deleted_by')->nullable()->constrained('users');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
