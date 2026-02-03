@@ -68,25 +68,6 @@
     <script>
       preset_change('preset-1');
     </script>
-    <!-- [Page Specific JS] start -->
-    <script>
-      // Start [ Menu hide/show on scroll ]
-      let ost = 0;
-      document.addEventListener('scroll', function () {
-        let cOst = document.documentElement.scrollTop;
-        if (cOst == 0) {
-          document.querySelector('.navbar').classList.add('top-nav-collapse');
-        } else if (cOst > ost) {
-          document.querySelector('.navbar').classList.add('top-nav-collapse');
-          document.querySelector('.navbar').classList.remove('default');
-        } else {
-          document.querySelector('.navbar').classList.add('default');
-          document.querySelector('.navbar').classList.remove('top-nav-collapse');
-        }
-        ost = cOst;
-      });
-      // End [ Menu hide/show on scroll ]
-    </script>
 
     @yield('scripts')
 
